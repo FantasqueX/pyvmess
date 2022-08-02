@@ -9,7 +9,7 @@
 
 Pyvmess is a naive implementation to parse raw [vmess](https://www.v2fly.org/developer/protocols/vmess.html) package in Python. Note: As vmess is such a complicated protocol, it's quite hard to implement full feature decoder. There are quite a lot of cases which are covered by Pyvmess.
 
-As this package is likely to be outdated, you can refer to vmess source code [server code](https://github.com/v2fly/v2ray-core/blob/master/proxy/vmess/encoding/server.go) and [client code](https://github.com/v2fly/v2ray-core/blob/master/proxy/vmess/encoding/client.go) if needed. 
+As this package is likely to be outdated, you can refer to vmess source code [server code](https://github.com/v2fly/v2ray-core/blob/master/proxy/vmess/encoding/server.go) and [client code](https://github.com/v2fly/v2ray-core/blob/master/proxy/vmess/encoding/client.go) if needed. Also you can refer to the official [document](https://www.v2fly.org/developer/protocols/vmess.html), although it's outdated. 
 
 **Table of Contents**
 
@@ -82,7 +82,7 @@ hatch build
 python -m build
 ```
 
-# Tests
+## Tests
 
 Pyvmess uses pytest for testing. You can run tests as follows.
 
