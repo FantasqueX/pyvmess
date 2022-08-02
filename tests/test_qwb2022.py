@@ -24,9 +24,14 @@ def test_qwb2022():
     with open("tests/data/server.bin", "rb") as f:
         server_data = f.read()
 
-    server_package = pyvmess.ServerVmessPackage(client_package.response_header, client_package.body_iv,
-                                                client_package.body_key, client_package.option, client_package.security,
-                                                server_data)
+    server_package = pyvmess.ServerVmessPackage(
+        client_package.response_header,
+        client_package.body_iv,
+        client_package.body_key,
+        client_package.option,
+        client_package.security,
+        server_data,
+    )
 
     server_package.decode_header()
 
