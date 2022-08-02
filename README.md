@@ -9,6 +9,8 @@
 
 Pyvmess is a naive implementation to parse raw [vmess](https://www.v2fly.org/developer/protocols/vmess.html) package in Python. Note: As vmess is such a complicated protocol, it's quite hard to implement full feature decoder. There are quite a lot of cases which are covered by Pyvmess.
 
+As this package is likely to be outdated, you can refer to vmess source code [server code](https://github.com/v2fly/v2ray-core/blob/master/proxy/vmess/encoding/server.go) and [client code](https://github.com/v2fly/v2ray-core/blob/master/proxy/vmess/encoding/client.go) if needed. 
+
 **Table of Contents**
 
 - [Installation](#installation)
@@ -45,22 +47,25 @@ client_package.decode_header()
 
 client_package.decode_body()
 
-with open("tests/data/client.text", "rb") as f:
-    client_text = f.read()
+print(b"".join(client_package.body_data).decode())
 
 with open("tests/data/server.bin", "rb") as f:
     server_data = f.read()
 
-server_package = pyvmess.ServerVmessPackage(client_package.response_header, client_package.body_iv,
-                                            client_package.body_key, client_package.option, client_package.security,
-                                            server_data)
+server_package = pyvmess.ServerVmessPackage(
+    client_package.response_header,
+    client_package.body_iv,
+    client_package.body_key,
+    client_package.option,
+    client_package.security,
+    server_data,
+)
 
 server_package.decode_header()
 
 server_package.decode_body()
 
-with open("tests/data/server.text", "rb") as f:
-    server_text = f.read()
+print(b"".join(server_package.body_data).decode())
 ```
 
 ## Build
