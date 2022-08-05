@@ -141,7 +141,7 @@ class ClientVmessPackage:
         tmp = header_reader.read(1)[0]
         self.padding = tmp >> 4
         self.security = tmp & 0xF
-        assert self.security in (5, 1, 3, 5)
+        assert self.security in (5, 1, 3, 4)
         header_reader.read(1)
         self.command = header_reader.read(1)[0]
         assert self.command in (1, 2, 3)
